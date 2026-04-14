@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MgBlog - Gen Z Vibes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .hero { background: linear-gradient(135deg, #E63939, #9F1239); }
+    </style>
+</head>
+<body class="bg-black text-white">
+
+    <!-- Navbar -->
+    <nav class="bg-zinc-950 border-b border-zinc-800 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
+            <h1 class="text-3xl font-bold">Mg<span class="text-red-500">Blog</span></h1>
+            <div class="flex gap-8">
+                <a href="#" class="hover:text-red-500">Home</a>
+                <a href="#" class="hover:text-red-500">Categories</a>
+                <a href="#" class="hover:text-red-500">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <div class="hero py-24 text-center">
+        <h1 class="text-6xl font-bold mb-4">Welcome to MgBlog</h1>
+        <p class="text-2xl text-red-100 max-w-lg mx-auto">
+            Real talk for Gen Z 🔥
+        </p>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-6 py-12">
+
+        <!-- Search -->
+        <div class="mb-10">
+            <input type="text" id="search" 
+                   placeholder="Search posts... 🔍" 
+                   class="w-full bg-zinc-900 border border-zinc-700 rounded-2xl px-6 py-5 text-lg focus:outline-none focus:border-red-500">
+        </div>
+
+        <!-- Categories -->
+        <div class="flex gap-3 mb-10 flex-wrap">
+            <span class="category-tag bg-red-600">All</span>
+            <span class="category-tag">💻 Tech</span>
+            <span class="category-tag">🌱 Lifestyle</span>
+            <span class="category-tag">🔥 Motivation</span>
+            <span class="category-tag">🐍 Programming</span>
+        </div>
+
+        <!-- Posts Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="posts">
+            <!-- Posts will be added here by JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        // Sample Posts
+        const posts = [
+            {
+                title: "Why Gen Z is quitting 9-5 jobs",
+                category: "Lifestyle",
+                date: "April 12, 2026",
+                excerpt: "The great resignation is evolving into something bigger...",
+                color: "red"
+            },
+            {
+                title: "How to actually learn Python in 2026",
+                category: "Programming",
+                date: "April 10, 2026",
+                excerpt: "Forget boring tutorials. Here's what actually works...",
+                color: "red"
+            },
+            {
+                title: "The truth about social media in 2026",
+                category: "Tech",
+                date: "April 8, 2026",
+                excerpt: "It's not what you think anymore...",
+                color: "red"
+            }
+        ];
+
+        function renderPosts() {
+            const container = document.getElementById('posts');
+            container.innerHTML = posts.map(post => `
+                <div class="bg-zinc-900 rounded-3xl overflow-hidden hover:scale-105 transition">
+                    <div class="h-2 bg-red-500"></div>
+                    <div class="p-6">
+                        <span class="text-red-400 text-sm">${post.category}</span>
+                        <h3 class="text-2xl font-semibold mt-3 mb-3">${post.title}</h3>
+                        <p class="text-zinc-400 line-clamp-3">${post.excerpt}</p>
+                        <div class="mt-6 text-xs text-zinc-500">${post.date}</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        renderPosts();
+    </script>
+</body>
+</html>
